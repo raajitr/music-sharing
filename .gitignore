@@ -30,3 +30,7 @@ MANIFEST
 
 # IDE specific
 .vscode/
+
+# Project specific files to be ignored
+db/
+media/
