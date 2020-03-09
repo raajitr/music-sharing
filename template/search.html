@@ -1,0 +1,28 @@
+{% block navbar %}
+  <nav class="navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar">
+            <p class="navbar-brand mb-0 h2">{{ name }}</p>
+            <form class="navbar-form form-inline" role="search" method="GET", action="{{ url_for('index.home') }}" style="margin-bottom: 0px; margin-top: 2%;">
+                <div class="form-group" >
+                  <select name="f" class="custom-select my-1 mr-sm-2" style="height: 3%;">
+                    <option selected value="all">Any</option>
+                    <option value="title">Title</option>
+                    <option value="album">Album</option>
+                    <option value="artist">Artist</option>
+                  </select>
+                <input type="text" name="q" style="width: 75% !important; position: fixed;" class="form-control" placeholder="Search">
+                </div>
+                <button type="submit" class="btn btn-default" style="left: 79%; position:relative;">Submit</button>
+            </form>
+            {% if request.args %}
+            <a href="{{ url_for('index.home') }}">
+              <button class="btn btn-default" style="left: 89%; position:relative;">Clear</button> 
+            </a>
+            {% endif %}
+                
+        </div>
+    </div>
+  </nav>
+  
+{% endblock %}
