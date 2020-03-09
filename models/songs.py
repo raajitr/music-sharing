@@ -27,6 +27,7 @@ class Songs(db.Model):
     def search_songs(cls, q_filter, q_search):
         q_songs = cls.query
         search = q_search.lower()
+        songs = []
         if q_filter.lower() == 'title':
             songs = q_songs.filter(cls.title.ilike("%{}%".format(search)))
         elif q_filter.lower() == 'artist':
@@ -38,4 +39,4 @@ class Songs(db.Model):
                                    cls.artist.ilike(f"%{search}%") |
                                    cls.title.ilike(f"%{search}%"))
 
-        return songs or []
+        return songs
