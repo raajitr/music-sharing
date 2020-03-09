@@ -1,1 +1,6 @@
-SQLALCHEMY_DATABASE_URI = 'sqlite:////db/songs.db'
+SQLALCHEMY_DATABASE_URI = 'sqlite:///db/songs.db'
+SQLALCHEMY_TRACK_MODIFICATIONS = False
+DEBUG = True
+WTF_CSRF_ENABLED = True
+UPLOAD_FOLDER = './media'
+SQLALCHEMY_ECHO=True
