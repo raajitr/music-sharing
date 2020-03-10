@@ -1,0 +1,17 @@
+#!/bin/bash
+
+if [[ -z "$VIRTUAL_ENV" ]]; then
+    echo "Please make sure this script is being run inside virtualenv" 1>&2
+    exit 1
+fi
+
+pip install -r requirements.txt
+
+export FLASK_APP=run.py
+export FLASK_ENV=development
+export SECRET_KEY=$(python -c 'import uuid; print (uuid.uuid4().hex)')
+
+flask manage init
+flask db init
+
+flask run
