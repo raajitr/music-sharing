@@ -5,7 +5,7 @@ endpoint: /delete/<slug-of-the-mp3-file>
 import os
 
 from flask import Blueprint, redirect, url_for, current_app
-from ..models import db, Songs
+from ..models import Songs
 
 bp = Blueprint('delete', __name__, url_prefix='/delete')
 
@@ -13,8 +13,7 @@ bp = Blueprint('delete', __name__, url_prefix='/delete')
 def delete_song(slug):
     match = Songs.query.filter(Songs.slug == slug).one()
     if match:
-        db.session.delete(match)
-        db.session.commit()
+        match.remove_song()
 
         os.remove(os.path.join(current_app.config['UPLOAD_FOLDER'], match.slug))
     return redirect(url_for('index.home'))
