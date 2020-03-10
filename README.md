@@ -27,4 +27,4 @@ source env/bin/activate
 ### Assumptions
 - Any user can add music (only `.mp3`).
 - Any user can delete any songs available on the site.
-- Any two or more songs can have same title=artist-album but their URL-slug would be different.
+- Any two or more songs can have same title-artist-album but their URL-slug would be different.
