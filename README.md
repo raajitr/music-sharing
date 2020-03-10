@@ -2,14 +2,9 @@
 
 ### Prequisites
 - Python 3.7+
-- [Virutalenv](https://pypi.org/project/virtualenv/)
 
 ### Installation
 - Create virtual environment for python3:
-```bash
-virtualenv -p $(which python3) env
-```
-Or
 ```bash
 python3 -m venv env
 ```
