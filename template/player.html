@@ -1,5 +1,5 @@
 <div class="footer navbar-fixed-bottom" style="min-height: 10px;" >
     <audio autoplay loop controls id="player" type="audio/mpeg">
-        <source id="playerSource" src="{{ current_song }}"></source>
+        <source id="playerSource" src="{{ current_song if current_song else '' }}"></source>
     </audio>
 </div>
