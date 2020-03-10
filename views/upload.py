@@ -8,7 +8,7 @@ from flask_wtf.file import FileAllowed, FileRequired
 from wtforms import StringField, FileField, SubmitField
 from wtforms.validators import InputRequired
 
-from ..models import db, Songs
+from ..models import Songs
 
 bp = Blueprint('form', __name__, url_prefix='/upload')
 
@@ -31,9 +31,7 @@ def upload_file():
                      artist=form.artist.data,
                      album=form.album.data)
         f.save(os.path.join(current_app.config['UPLOAD_FOLDER'], song.slug))
-
-        db.session.add(song)
-        db.session.commit()
+        song.add_song()
         return redirect(url_for('index.home'))
 
     return render_template('form.html', form=form)
