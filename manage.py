@@ -22,7 +22,7 @@ def init_db():
     if db_uri.startswith('sqlite'):
         db_path = db_uri[len('sqlite:///'):]
     if not os.path.exists(db_path):
-        os.mkdir(db)
+        os.mkdir('db')
         from pathlib import Path
         Path(f"{db_path}").touch()
         db.create_all()
